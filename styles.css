@@ -1,0 +1,62 @@
+body {
+    margin: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background-color: lightslategray;
+    height: 280px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    border-style: solid;
+}
+
+.display {
+    background-color: rgb(142, 179, 191);
+    border-style: solid;
+    font-size: 30px;
+    padding: 5px;
+    text-align: right;
+}
+
+.top-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 50px);
+}
+
+.bot-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 50px);
+    grid-template-rows: repeat(4, 50px);
+}
+
+button {
+    background-color: lightsteelblue;
+    margin: 1px;
+    border-radius: 8px;
+}
+
+.top-buttons button:hover {
+    width: 90%;
+    margin-left: 2px;
+}
+
+.top-buttons button:active {
+    width: 95%;
+    margin: auto;
+}
+
+.bot-buttons button:hover {
+    height: 90%;
+    width: 90%;
+    margin: 2px;
+}
+
+.bot-buttons button:active {
+    height: auto;
+    width: auto;
+}
