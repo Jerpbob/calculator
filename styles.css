@@ -15,7 +15,8 @@ body {
     border-style: solid;
 }
 
-.display {
+#display {
+    height: 35px;
     background-color: rgb(142, 179, 191);
     border-style: solid;
     font-size: 30px;
