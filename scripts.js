@@ -22,10 +22,12 @@ container.addEventListener("click", function (e) {
     const display = document.getElementById("display");
     if (e.target.value) {
         display.appendChild(document.createTextNode(e.target.value));
-    } else if (e.target.id !== 'equals') {
+    } else if ((e.target.id !== 'equals') && (e.target.id !== 'delete')) {
         a = display.innerHTML;
         operator = e.target.id;
         display.innerHTML = '';
+    } else if (e.target.id === 'delete') {
+        display.innerHTML = display.innerHTML.slice(0, -1);
     } else {
         const b = display.innerHTML;
         display.innerHTML = '';
