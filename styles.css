@@ -8,6 +8,7 @@ body {
 .container {
     background-color: lightslategray;
     height: 280px;
+    width: 200px;
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -21,6 +22,13 @@ body {
     border-style: solid;
     font-size: 30px;
     padding: 5px;
+    overflow-x: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+#display::-webkit-scrollbar {
+    display: none;
 }
 
 .top-buttons {
