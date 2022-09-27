@@ -58,7 +58,18 @@ button {
     margin: auto;
 }
 
+.top-pressed {
+    width: 90%;
+    margin-left: 2px;
+}
+
 .bot-buttons button:hover {
+    height: 90%;
+    width: 90%;
+    margin: 2px;
+}
+
+.button-pressed {
     height: 90%;
     width: 90%;
     margin: 2px;
