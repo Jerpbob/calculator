@@ -18,6 +18,7 @@ var operation = {
 var a;
 var b;
 var operator;
+var key = ''
 
 const container = document.querySelector(".button-container");
 container.addEventListener("click", function (e) {
@@ -38,13 +39,13 @@ container.addEventListener("click", function (e) {
     }
 });
 
-let key = ''
 window.addEventListener("keydown", function (e) {
-    console.log(e.key);
     key = document.querySelector(`button[data-key="${e.key}"]`);
-    console.log(key);
-    console.log(key.id);
-    console.log(key.value);
+    if (key.id !== "delete") {
+        key.classList.add("button-pressed");
+    } else {
+        key.classList.add("top-pressed");
+    }
     const display = document.getElementById("display");
     if (key.value) {
         display.appendChild(document.createTextNode(key.value));
@@ -63,3 +64,8 @@ window.addEventListener("keydown", function (e) {
     }
 });
 
+window.addEventListener("keyup", function (e) {
+    key = document.querySelector(`button[data-key="${e.key}"]`);
+    key.classList.remove("button-pressed");
+    key.classList.remove("top-pressed");
+});
