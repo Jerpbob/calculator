@@ -3,8 +3,8 @@ var operation = {
         return (+a * +b);
     },
     divide: function (a, b) {
-        if (a !== 0 && b === 0) {
-            return 'You tryna break me?';
+        if (+a !== 0 && +b === 0) {
+            return 'Don\'t do that';
         } else return (+a / +b);
     },
     add: function (a, b) {
@@ -15,8 +15,10 @@ var operation = {
     },
 };
 
-let a = 0;
-let operator = '';
+var a;
+var b;
+var operator;
+
 const container = document.querySelector(".button-container");
 container.addEventListener("click", function (e) {
     const display = document.getElementById("display");
@@ -29,8 +31,35 @@ container.addEventListener("click", function (e) {
     } else if (e.target.id === 'delete') {
         display.innerHTML = display.innerHTML.slice(0, -1);
     } else {
-        const b = display.innerHTML;
+        b = display.innerHTML;
         display.innerHTML = '';
         display.innerHTML = operation[`${operator}`](a, b);
+        console.log(innerHTML);
     }
 });
+
+let key = ''
+window.addEventListener("keydown", function (e) {
+    console.log(e.key);
+    key = document.querySelector(`button[data-key="${e.key}"]`);
+    console.log(key);
+    console.log(key.id);
+    console.log(key.value);
+    const display = document.getElementById("display");
+    if (key.value) {
+        display.appendChild(document.createTextNode(key.value));
+    } else if ((key.id !== 'equals') && (key.id !== 'delete')) {
+        a = display.innerHTML;
+        operator = key.id;
+        display.innerHTML = '';
+    } else if (key.id === 'delete') {
+        display.innerHTML = display.innerHTML.slice(0, -1);
+    } else {
+        b = display.innerHTML;
+        display.innerHTML = '';
+        console.log(operator);
+        display.innerHTML = operation[`${operator}`](a, b);
+        console.log(innerHTML);
+    }
+});
+
