@@ -1,17 +1,17 @@
-var operation = {
+const operation = {
     multiply: (a, b) => (+a * +b),
     divide: (a, b) => (+a !== 0 && +b === 0) ? 'Don\'t do that' : (+a / +b),
     add: (a, b) => (+a + +b),
     minus: (a, b) => (+a - +b),
 };
 
-var a;
-var b;
-var operator;
-var key = '';
+let a;
+let b;
+let operator;
+let key = '';
 
-var keys = (e) => document.querySelector(`button[data-key="${e.key}"]`);
-var buttonPress = (key, display) => {
+const keys = (e) => document.querySelector(`button[data-key="${e.key}"]`);
+const buttonPress = (key, display) => {
     if (key.value) {
         display.appendChild(document.createTextNode(key.value));
     } else if ((key.id !== 'equals') && (key.id !== 'delete')) {
