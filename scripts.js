@@ -1,18 +1,8 @@
 var operation = {
-    multiply: function (a, b) {
-        return (+a * +b);
-    },
-    divide: function (a, b) {
-        if (+a !== 0 && +b === 0) {
-            return 'Don\'t do that';
-        } else return (+a / +b);
-    },
-    add: function (a, b) {
-        return (+a + +b);
-    },
-    minus: function (a, b) {
-        return (+a - +b);
-    },
+    multiply: (a, b) => (+a * +b),
+    divide: (a, b) => (+a !== 0 && +b === 0) ? 'Don\'t do that' : (+a / +b),
+    add: (a, b) => (+a + +b),
+    minus: (a, b) => (+a - +b),
 };
 
 var a;
