@@ -10,7 +10,8 @@ var b;
 var operator;
 var key = '';
 
-function buttonPress(key, display) {
+var keys = (e) => document.querySelector(`button[data-key="${e.key}"]`);
+var buttonPress = (key, display) => {
     if (key.value) {
         display.appendChild(document.createTextNode(key.value));
     } else if ((key.id !== 'equals') && (key.id !== 'delete')) {
@@ -24,28 +25,24 @@ function buttonPress(key, display) {
         display.innerHTML = '';
         display.innerHTML = operation[`${operator}`](a, b);
     }
-}
+};
 
 const container = document.querySelector(".button-container");
-container.addEventListener("click", function (e) {
+container.addEventListener("click", (e) => {
     const display = document.getElementById("display");
     key = e.target;
     buttonPress(key, display);
 });
 
-window.addEventListener("keydown", function (e) {
-    key = document.querySelector(`button[data-key="${e.key}"]`);
-    if (key.id !== "delete") {
-        key.classList.add("button-pressed");
-    } else {
-        key.classList.add("top-pressed");
-    }
+window.addEventListener("keydown", (e) => {
+    key = keys(e);
+    (key.id !== "delete") ? key.classList.add("button-pressed") : key.classList.add("top-pressed");
     const display = document.getElementById("display");
     buttonPress(key, display);
 });
 
-window.addEventListener("keyup", function (e) {
-    key = document.querySelector(`button[data-key="${e.key}"]`);
+window.addEventListener("keyup", (e) => {
+    key = keys(e);
     key.classList.remove("button-pressed");
     key.classList.remove("top-pressed");
 });
